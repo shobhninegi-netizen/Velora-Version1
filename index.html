@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VELORA</title>
+   <link rel="stylesheet" href="styles.css">
+    
+</head>
+
+  
+<body>
+  <header>
+  
+  <nav  class="navbar">
+    <div class="left">
+      
+
+<h1 class="logo"><i>VELORA</i></h1>
+<p class="tagline">style.elegance.everyday</p>
+    
+    </div>
+   <div class="search-box">
+  <input type="text" placeholder="Search for products, brands and more" />
+  <button class="search-btn">
+    
+
+  <i class="fa-solid fa-magnifying-glass"></i>
+
+</div>
+ <div class="right">
+  <button id="cart-btn">
+  🛒 Cart (<span id="cart-count">0</span>)
+</button>
+  <button onclick="clearCart()" id="clear-cart">Clear Cart</button>
+  
+
+  <button class="account">Account</button>
+  </div>
+     
+  </nav>
+  </header>
+<main></main>
+<section class="hero">
+  <div class="hero-content">
+
+    <p class="hero-tag">WELCOME TO VELORA</p>
+
+    <h1>Luxury Shopping, Simplified.</h1>
+
+    <p class="hero-desc">
+      Discover premium fashion, electronics,
+      beauty and lifestyle essentials curated
+      for modern living.
+    </p>
+
+    <button class="hero-btn">
+      Explore Collection
+    </button>
+
+  </div>
+
+   
+</section> 
+  <section class="categories">
+    <h2>Categories</h2>
+<ul>
+  <li ><img src="images/pixbook.jpg" alt="Books"><p>
+  Books & Reads </p></li>
+<li ><img src="images/fashion.jpg" alt="Fashion"><p>
+  Fashion Finds</p></li>
+  <li ><img src="images/tech.jpg" alt="Electronics"><p>
+  Tech Essentials</p></li>
+  <li ><img src="images/beauty.jpg" alt="Beauty Products"><p>
+  Beauty Picks</p></li>
+<li ><img src="images/home.jpg" alt="home decor"><p>
+  Home Styling</p></li>
+</ul>
+  </section>
+
+  <section class="featured-products">
+    
+    <h3>Featured Products</h3>
+    <div class="products-grid">
+    <div class="product-card" data-id="1">
+    <img src="images/kindle.jpg" alt="product1">
+      <h3>Kindle Paperwhite</h3>
+    
+     <p class="description"> with a glare-free display and weeks of battery life.</p>
+    <p class="rating">⭐⭐⭐⭐⭐ 4.5</p>
+      <label>Qty:</label>
+      <select>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      <p class="price">Price: $159</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    
+        <div class="product-card" data-id="2">
+    <img src="images/MackBook.jpg" alt="product2">
+        <h3>MacBook Air M3 
+        </h3>
+    <p class="description">Lightweight laptop with M3 chip, Retina display, and all-day battery life.</p>
+    <p class="rating">⭐⭐⭐⭐⭐ 4.5</p>
+       <label>Qty:</label>
+      
+      <select>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      <p class="price">Price: $1,299</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+     
+    <div class="product-card" data-id="3">
+    <img src="images/applewatch.jpg" alt="product3">
+      <h3 class="description">
+        Apple Watch Series 11</h3>
+    <p class="description">Smartwatch with fitness tracking, 
+      health monitoring, and seamless connectivity.</p>
+    <p class="rating">⭐⭐⭐⭐⭐ 4.5</p>
+      <label>Qty:</label>
+      <select>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      <p class="price">Price: $399</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product-card" data-id="4">
+    <img src="images/nike.jpg" alt="product4">
+      <h3> Nike Air Max Shoes</h3>
+    <p class="description">Comfortable and stylish sneakers for everyday wear.</p>
+    <p class="rating">⭐⭐⭐⭐⭐ 4.5</p>
+    <label>Qty:</label>  
+      <select>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      <p class="price">Price: $149</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+
+    
+    <div class="product-card" data-id="5">
+    <img src="images/Adidas.jpg" alt="product5">
+      <h3> Adidas Backpack </h3>
+    <p class="description">Durable backpack with spacious compartments for daily essentials.</p>
+    <p class="rating">⭐⭐⭐⭐⭐ 4.5</p>
+      <label>Qty:</label>
+      <select>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      <p class="price">Price: $59</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+
+    <div class="product-card" data-id="6">
+    <img src="images/JBL.jpg" alt="product6">
+      <h3> JBL Flip 7 Speaker </h3>
+    <p class="description">Portable Bluetooth speaker delivering powerful sound and long battery life.</p>
+    <p class="rating">⭐⭐⭐⭐⭐ 4.5</p>
+
+    <label>Qty:</label>  
+      <select>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      <p class="price">Price: $129</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+    <div class="product-card" data-id="7">
+   <img src="images/book2.jpg" alt="Partners In Crime">
+      <h3> Partners In Crime </h3>
+    <p class="description"> A collection of mystery adventures featuring Tommy and Tupence,written by
+      Agatha Christie.
+    </p>
+    <p class="rating">⭐⭐⭐⭐⭐ 4.5</p>
+      <label>Qty:</label>
+      <select>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      <p class="price">Price: $12</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+<div class="product-card" data-id="8">
+  <img src="images/mine.jpg" width="300">
+     <h3> I'll be gone in the dark </h3>
+  
+    <p class="description">details the harrowing decade-long reign of terror by 
+      the Golden State Killer and the tragic, obsessive hunt for his 
+      identity by journalist Michelle McNamara.
+    </p>
+    <p class="rating">⭐⭐⭐⭐⭐ 4.5</p>
+      <label>Qty:</label>
+      <select>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      <p class="price">Price: $15</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+
+    <div class="product-card" data-id="9">
+  <img src="images/sundress.jpg" alt="dress">
+     <h3> white floral sundress </h3>
+  
+    <p class="description">A breezy white floral sundress designed for effortless elegance, 
+      featuring a flattering silhouette and a light, 
+      feminine feel perfect for sunny days.
+    </p>
+    <p class="rating">⭐⭐⭐⭐⭐ 4.5</p>
+      <label>Qty:</label>
+      <select>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      <p class="price">Price: $50</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+
+    <div class="product-card" data-id="10">
+  <img src="images/ments.jpg" alt="dress">
+     <h3> Men T-shirt </h3>
+  
+    <p class="description">White T-shirt crafted for comfort and versatility, 
+      featuring a modern fit and a refined casual look.
+    </p>
+    <p class="rating">⭐⭐⭐⭐⭐ 4.5</p>
+      <label>Qty:</label>
+      <select>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      <p class="price">Price: $30</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+<div class="product-card" data-id="11">
+  <img src="images/cute.jpg" alt="dress">
+     <h3> Velora Ceramic Trio</h3>
+  
+    <p class="description">An elegant three-piece vase set crafted to add texture, 
+      balance, and a sophisticated touch to modern spaces.
+    </p>
+    <p class="rating">⭐⭐⭐⭐⭐ 4.5</p>
+      <label>Qty:</label>
+      <select>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      <p class="price">Price: $42</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+
+    <div class="product-card" data-id="12">
+  <img src="images/shell tray.jpg" alt="dress">
+     <h3> Ceramic Shell Tray</h3>
+  
+    <p class="description">A beautifully crafted white ceramic shell tray that adds a refined 
+      coastal touch to modern interiors while doubling as a chic display piece.
+    </p>
+    <p class="rating">⭐⭐⭐⭐⭐ 4.5</p>
+      <label>Qty:</label>
+      <select>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      <p class="price">Price: $15</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    </div>
+
+    <div class="product-card" data-id="13">
+  <img src="images/per1.jpg" alt="dress">
+     <h3> J'adore Eau de Parfum</h3>
+      <p class="description">An iconic floral perfume with a radiant, feminine scent and luxurious finish
+    </p>
+    <p class="rating">⭐⭐⭐⭐⭐ 4.5</p>
+      <label>Qty:</label>
+      <select>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      <p class="price">Price: $170</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+
+</div>
+<div class="product-card" data-id="14">
+  <img src="images/per2.jpg" alt="dress">
+     <h3>Obsession Eau de Parfum</h3>
+  
+    <p class="description">A warm, spicy fragrance made for bold
+       evenings and unforgettable presence.
+    </p>
+    <p class="rating">⭐⭐⭐⭐⭐ 4.5</p>
+      <label>Qty:</label>
+      <select>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      <p class="price">Price: $50</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+    
+    </div>
+    <div class="product-card" data-id="15">
+  <img src="images/set.jpg" alt="dress">
+     <h3> Coastal Shell Jewellery Set</h3>
+  
+    <p class="description">A coastal-inspired jewellery set with beachy
+       shells and effortless statement charm. 
+
+    </p>
+    <p class="rating">⭐⭐⭐⭐⭐ 4.5</p>
+      <label>Qty:</label>
+      <select>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      <p class="price">Price: $19</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+      </div>
+
+
+      <div class="product-card" data-id="16
+      ">
+  <img src="images/ysl.jpg" alt="dress">
+     <h3>YSL Rouge Pur Couture Lipstick</h3>
+  
+    <p class="description">A luxury lipstick with rich pigment,
+       smooth glide, and couture-level glam.
+    </p>
+    <p class="rating">⭐⭐⭐⭐⭐ 4.5</p>
+      <label>Qty:</label>
+      <select>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      <p class="price">Price: $15</p>
+      <button onclick="addToCart(this)">Add to Cart</button>
+</div>
+    </div>
+
+
+  </section>
+</main>
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <h2 class="footer-logo">VELORA</h2>
+      <p>Luxury shopping for fashion, beauty, books and lifestyle essentials — all in one place.</p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <a href="#">Home</a>
+      <a href="#">Categories</a>
+      <a href="#">Featured Products</a>
+      <a href="#">Trending Now</a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Customer Care</h3>
+      <a href="#">FAQ</a>
+      <a href="#">Shipping</a>
+      <a href="#">Returns</a>
+      <a href="#">Track Order</a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Follow Us</h3>
+      <a href="#">Instagram</a>
+      <a href="#">Pinterest</a>
+      <a href="#">Twitter</a>
+      <p class="footer-note">Style. Elegance. Everyday.</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Velora. All rights reserved.</p>
+  </div>
+</footer>
+      
+    
+ <div id="toast-container"></div>
+
+<audio id="toast-sound" src="ding.mp3" preload="auto"></audio>
+<script src="script.js"></script>
+</body>
+</html>
