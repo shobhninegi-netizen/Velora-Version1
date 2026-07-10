@@ -74,6 +74,16 @@ function clearCart() {
 
   showToast("CART CLEARED 🛒");
 }
+<<<<<<< HEAD
+=======
+document.querySelector(".mobile-cart-btn").onclick = () => {
+  document.getElementById("cart-btn").click();
+};
+
+document.querySelector(".mobile-clear-cart").onclick = () => {
+  document.getElementById("clear-cart").click();
+};
+>>>>>>> 78a338f (updated Velora project)
 function addToCart(button ){
   document.getElementById("cart-btn").addEventListener("click", () => {
   location.href = "cart.html";
@@ -83,11 +93,21 @@ function addToCart(button ){
    const name = card.querySelector("h3").innerText;
    const quantity = Number(card.querySelector("select").value);
    const  image = card.querySelector("img").src;
+<<<<<<< HEAD
 const price = Number(
     card.querySelector(".price").innerText.replace("Price: $", "")
 );
 console.log(card.querySelector(".price").innerText);
 const description = card.querySelector("p").innerText;
+=======
+   const price = Number(
+    card.querySelector(".price").innerText
+    .replace("Price: $", "")
+    .replace(",", "")
+);
+console.log(card.querySelector(".price").innerText);
+const description = card.querySelector(".description").innerText;
+>>>>>>> 78a338f (updated Velora project)
 const rating = card.querySelector(".rating").innerText;
    const product = {
       id,
@@ -115,3 +135,17 @@ console.log(cart);
 showToast();
 document.getElementById("cart-count").innerText = cart.length;
 }
+<<<<<<< HEAD
+=======
+const menuBtn = document.querySelector(".menu-btn");
+const mobileMenu = document.querySelector(".mobile-menu");
+
+menuBtn.addEventListener("click", () => {
+  mobileMenu.classList.toggle("active");
+});
+
+
+document.querySelector(".mobile-cart-btn").addEventListener("click",()=>{
+  location.href="cart.html";
+});
+>>>>>>> 78a338f (updated Velora project)
