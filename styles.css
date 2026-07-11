@@ -3,8 +3,7 @@ body {
   margin: 0;
   background:#f5f5f5;
 }
-<<<<<<< HEAD
-=======
+
 
 .menu-btn{
   
@@ -20,7 +19,7 @@ body {
 border-radius: 10px;
 }
 
->>>>>>> 78a338f (updated Velora project)
+
 .navbar{
     display:flex;
     margin: 15px 20px;
@@ -30,11 +29,9 @@ border-radius: 10px;
     font-family: Arial;
     padding: 10px  20px;
      align-items:center;
-<<<<<<< HEAD
      justify-content:space-between ;
 
-}
-=======
+
      
 
 }
@@ -42,8 +39,6 @@ border-radius: 10px;
   display:none;
 }
 
-
->>>>>>> 78a338f (updated Velora project)
 .logo{
     font-size: 30px;
     font-weight: 700;
@@ -150,14 +145,11 @@ font-family: Arial, sans-serif;
   align-items: center;
 }
 
-<<<<<<< HEAD
+
 .account {
   font-size: 15px;
   padding: 14px 22px;
 }
-=======
-
->>>>>>> 78a338f (updated Velora project)
 
 .cart:hover,
 .account:hover {
@@ -306,7 +298,7 @@ ul li img {
   display: flex;          /* horizontal line */
   justify-content: center;
   gap: 24px;
-  flex-wrap: nowrap;      /* sab ek hi row me */
+  flex-wrap: wrap;      /* sab ek hi row me */
 }
 
 .categories li{
@@ -540,8 +532,8 @@ ul li img {
   transform: translateX(0);
 
 }
-<<<<<<< HEAD
-=======
+
+
 @media (max-width: 768px){
   #cart-btn,.account,#clear-cart{
   display:none;}
@@ -632,4 +624,3 @@ display:none;
 }  
 
 
->>>>>>> 78a338f (updated Velora project)
