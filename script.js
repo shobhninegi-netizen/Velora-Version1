@@ -1,151 +1,126 @@
+let cart = JSON.parse(localStorage.getItem("cart"))|| [];
+/* ---------------- RENDER CART ---------------- */
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+function renderCart() {
+    const container = document.getElementById("cart-container");
+    container.innerHTML="";
+ 
 
+    cart.forEach(item => {
 
+        container.innerHTML +=`
+        <div class="cart-item">
+        <img src="${item.image}" width="80">
+        <h3> ${item.name}</h3>
+        <p>Quantity: ${item.quantity}</p>
+        <p>Price: ${item.price*item.quantity}</p> 
+        <p>Description: ${item.description}</p> 
+        <p>Rating: ${item.rating}</p>
+        <button
+class="remove-btn"
+data-id="${item.id}">
+Remove
+</button>
+        </div>     
+       `;
 
+    
+       container.innerHTML += `
+<div class="cart-item">
+  <img src="${item.image}" width="80">
 
-const clearBtn = document.getElementById("Clear-Cart");
-if (clearBtn) {
-  clearBtn.addEventListener("click", clearCart);
+  <div class="cart-details">
+    <h3>${item.name}</h3>
+    <p>Quantity: ${item.quantity}</p>
+    <p>Price: $${item.price * item.quantity}</p>
+    <p>Description: ${item.description}</p>
+    <p>Rating: ${item.rating}</p>
+
+    <button
+      class="remove-btn"
+      data-id="${item.id}">
+      Remove
+    </button>
+  </div>
+</div>
+`;
+
+       
+        
+    });
+    const buttons = document.querySelectorAll(".remove-btn");
+
+    buttons.forEach(button=>{
+        button.addEventListener("click",()=>{
+            const id = button.dataset.id;
+            removeFromCart(id);
+        });
+    });
 }
+/* ---------------- REMOVE ITEM ---------------- */
+     function removeFromCart(id) {
+         cart = cart.filter(item => item.id !== id);
+         
+         localStorage.setItem("cart",JSON.stringify(cart));
+        
+         renderCart();
+         showToast("ITEM REMOVED FROM CART 🛒");
+        calculateSummary();}
+        
+/* ---------------- CALCULATE SUMMARY ---------------- */
+ function calculateSummary(){
+     const  subtotalElement = document.getElementById("subtotal");
+   const shippingElement = document.getElementById("shipping");
+    const taxElement = document.getElementById("tax");
+    const grandTotalElement = document.getElementById("grand-total");
+    const giftCardElement = document.getElementById("giftCard");
+const discountElement = document.getElementById("discount");
+  let  subtotal=0;
+  let  shipping=0;
+   let tax=0;
+    let grandTotal=0;
+    let discount=0;
+    let giftCard="";
+     // 🔥 subtotal calculation only
+    cart.forEach(item=>{
+        subtotal+= item.price*item.quantity;
+        
+    });
+     // 🚚 shipping rule
+    
+    if(subtotal>=100){
+        shipping=0;
+         
+    }
+    else{
+        shipping=10;
+    }
 
-const messages = [
-  "READY TO UPGRADE BEAUTIFUL SOUL ✨",
-  "YOU JUST ADDED PURE LUXURY 💅",
-  "VELORA LOVES YOUR CHOICE 💖",
-  "PREMIUM PICK SELECTED 🔥",
-  "STYLE LEVEL INCREASED ✨"
-];
-
-// toast function sirf toast ke liye
-function showToast(customMsg = null) {
-  const container = document.getElementById("toast-container");
-  const sound = document.getElementById("toast-sound");
-
-  if (!container) {
-    console.log("toast-container not found");
-    return;
-  }
-
-  // remove old toast if any
-  container.innerHTML = "";
-
-  // pick random message if custom message not passed
-  const msg = customMsg || messages[Math.floor(Math.random() * messages.length)];
-
-  // create toast
-  const toast = document.createElement("div");
-  toast.classList.add("toast");
-  toast.innerHTML = msg;
-
-  container.appendChild(toast);
-
-  // trigger animation
-  setTimeout(() => {
-    toast.classList.add("show");
-  }, 50);
-
-  // play sound safely
-  if (sound) {
-    sound.currentTime = 0;
-    sound.play().catch(err => console.log("Sound play blocked:", err));
-  }
-
-  // remove toast
-  setTimeout(() => {
-    toast.classList.remove("show");
-  }, 2500);
-
-  setTimeout(() => {
-    container.innerHTML = "";
-  }, 3000);
-}
-
-// clear cart function
-function clearCart() {
-  if (cart.length === 0) {
-    showToast("CART ALREADY EMPTY 😄");
-    return;
-  }
-
-  cart = [];
-  localStorage.setItem("cart", JSON.stringify(cart));
-  document.getElementById("cart-count").innerText = cart.length;
-
-  showToast("CART CLEARED 🛒");
-}
-<<<<<<< HEAD
-=======
-document.querySelector(".mobile-cart-btn").onclick = () => {
-  document.getElementById("cart-btn").click();
-};
-
-document.querySelector(".mobile-clear-cart").onclick = () => {
-  document.getElementById("clear-cart").click();
-};
->>>>>>> 78a338f (updated Velora project)
-function addToCart(button ){
-  document.getElementById("cart-btn").addEventListener("click", () => {
-  location.href = "cart.html";
-});
-   const card = button.closest(".product-card");
-   const id = card.dataset.id;
-   const name = card.querySelector("h3").innerText;
-   const quantity = Number(card.querySelector("select").value);
-   const  image = card.querySelector("img").src;
-<<<<<<< HEAD
-const price = Number(
-    card.querySelector(".price").innerText.replace("Price: $", "")
-);
-console.log(card.querySelector(".price").innerText);
-const description = card.querySelector("p").innerText;
-=======
-   const price = Number(
-    card.querySelector(".price").innerText
-    .replace("Price: $", "")
-    .replace(",", "")
-);
-console.log(card.querySelector(".price").innerText);
-const description = card.querySelector(".description").innerText;
->>>>>>> 78a338f (updated Velora project)
-const rating = card.querySelector(".rating").innerText;
-   const product = {
-      id,
-      name,
-      quantity,
-      image,
-      price,
-      description,
-      rating
-   };
-
-   // to check if the product already exist
-
-   let existing= cart.find(item => item.id===id);
-
-if (existing){
-
-  existing.quantity+= quantity;
+ // 🧾 tax rule (5%)
+tax= subtotal*0.05;
+if (subtotal >= 100) {
+    discount = subtotal * 0.10; // 10% discount
 } else {
-  cart.push(product)
+    discount = 0;
 }
-// save
-localStorage.setItem("cart",JSON.stringify(cart));
-console.log(cart);
-showToast();
-document.getElementById("cart-count").innerText = cart.length;
+// 💰 grand total
+grandTotal = subtotal+shipping+tax-discount;
+ // 🎁 gift card logic
+if (subtotal >= 100){
+    giftCard = "🎉 Congratulations! Gift Unlocked"
 }
-<<<<<<< HEAD
-=======
-const menuBtn = document.querySelector(".menu-btn");
-const mobileMenu = document.querySelector(".mobile-menu");
+else{
+    giftCard = "🎁 Shop $100 or more"
+}
+  // 🖥️ update UI
+subtotalElement.innerText = subtotal;
+    shippingElement.innerText = shipping;
+    taxElement.innerText = tax;
+    grandTotalElement.innerText = grandTotal;
+    discountElement.innerText = discount;
+    giftCardElement.innerText = giftCard;
 
-menuBtn.addEventListener("click", () => {
-  mobileMenu.classList.toggle("active");
-});
+ }/* ---------------- INIT ---------------- */
+ renderCart();
+ calculateSummary();
 
-
-document.querySelector(".mobile-cart-btn").addEventListener("click",()=>{
-  location.href="cart.html";
-});
->>>>>>> 78a338f (updated Velora project)
