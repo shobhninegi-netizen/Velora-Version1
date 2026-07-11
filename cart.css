@@ -2,14 +2,7 @@
   transition: all 0.3s ease;
 }
 
-@media (max-width: 768px) {
-  .cart-item {
-    flex: 0 0 85%;
-  }
-  .products{
-    padding: 10px;
-  }
-}
+
 .cart-item {
   display: flex;
   gap: 10px;
@@ -25,17 +18,7 @@
   transition: transform 0.3s ease;
   margin-bottom: 15px;
   scroll-padding: 20px;
-    scroll-snap-type: x mandatory;
-
-<<<<<<< HEAD
-    overflow-y:hidden;
-=======
     overflow-y:visible;
->>>>>>> 78a338f (updated Velora project)
-    overflow-x: auto;
-    scroll-behavior:smooth;
-
-
 }
 .cart-item:hover {
   transform: translateY(-5px) scale(1.03);
@@ -109,16 +92,14 @@ main{
     align-items:start;
 }
 .products{
-
-<<<<<<< HEAD
-    height:100vh;
-=======
     height:auto;
->>>>>>> 78a338f (updated Velora project)
+
     display: flex;
     padding: 20px;
     gap:20px;
-    
+     overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
     
 
     
@@ -261,8 +242,7 @@ header {
 
     background:#b6466d;
 }
-<<<<<<< HEAD
-=======
+
 @media (max-width: 768px){
   main{
     grid-template-columns:1fr;
@@ -325,6 +305,17 @@ display:block !important;
     flex-direction:column;
     gap:8px;
    } 
-  }
+  
 
->>>>>>> 78a338f (updated Velora project)
+  .cart-item {
+    flex: 0 0 85%;
+  }
+  .products{
+    padding: 10px;
+  }
+  body{
+    overflow-x:hidden;
+  }
+}
+
+
