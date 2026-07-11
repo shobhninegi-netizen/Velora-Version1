@@ -7,7 +7,7 @@ function renderCart() {
  
 
     cart.forEach(item => {
-<<<<<<< HEAD
+
         container.innerHTML +=`
         <div class="cart-item">
         <img src="${item.image}" width="80">
@@ -23,7 +23,7 @@ Remove
 </button>
         </div>     
        `;
-=======
+
     
        container.innerHTML += `
 <div class="cart-item">
@@ -44,7 +44,7 @@ Remove
   </div>
 </div>
 `;
->>>>>>> 78a338f (updated Velora project)
+
        
         
     });
@@ -123,8 +123,6 @@ subtotalElement.innerText = subtotal;
  }/* ---------------- INIT ---------------- */
  renderCart();
  calculateSummary();
-<<<<<<< HEAD
- 
-=======
+
  
 >>>>>>> 78a338f (updated Velora project)
