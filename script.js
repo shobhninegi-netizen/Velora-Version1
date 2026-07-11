@@ -18,7 +18,7 @@ function showToast(customMsg = null) {
   container.innerHTML = "";
 
   const msg =
-    
+     customMsg ||
     messages[Math.floor(Math.random() * messages.length)];
 
   const toast = document.createElement("div");
@@ -48,8 +48,15 @@ function showToast(customMsg = null) {
 // ---------------- UPDATE CART COUNT ----------------
 function updateCartCount() {
   const cartCount = document.getElementById("cart-count");
+  const mobileCartCount =
+    document.getElementById("mobile-cart-count");
+
   if (cartCount) {
     cartCount.innerText = cart.length;
+  }
+
+  if (mobileCartCount) {
+    mobileCartCount.innerText = cart.length;
   }
 }
 
@@ -112,6 +119,7 @@ function addToCart(button) {
   const id = card.dataset.id;
   const name = card.querySelector("h3").innerText;
   const quantity = Number(card.querySelector("select").value);
+  
   const image = card.querySelector("img").src;
 
   const price = Number(
